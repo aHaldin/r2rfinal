@@ -51,8 +51,8 @@ export default function ServicesPage() {
         {/* Tier 1 */}
         <div>
           <div className="border-l-4 border-[#7C35BE] pl-4 mb-8">
-            <p className="text-xs font-semibold tracking-widest text-[#7C35BE] uppercase mb-1">Tier 1</p>
             <h2 className="text-2xl font-bold text-[#1B2D50]">Systems Consulting</h2>
+            <p className="text-[#6B7280] text-sm mt-1">Entry point — low commitment, high clarity</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <ServiceCard
@@ -64,6 +64,7 @@ export default function ServicesPage() {
             <ServiceCard
               title="Operations Discovery Session"
               price="£599"
+              badge="Best starting point"
               body="A structured workshop where we map your current workflow, identify gaps, and produce a written roadmap. If you go on to a build, the £599 comes off the project cost."
               duration="Typical duration: 2-hour session + written output."
             />
@@ -73,8 +74,8 @@ export default function ServicesPage() {
         {/* Tier 2 */}
         <div>
           <div className="border-l-4 border-[#7C35BE] pl-4 mb-8">
-            <p className="text-xs font-semibold tracking-widest text-[#7C35BE] uppercase mb-1">Tier 2</p>
             <h2 className="text-2xl font-bold text-[#1B2D50]">Operations Build</h2>
+            <p className="text-[#6B7280] text-sm mt-1">Fixed-fee project work — built to your business</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
             <ServiceCard
@@ -102,9 +103,8 @@ export default function ServicesPage() {
         {/* Tier 3 */}
         <div>
           <div className="border-l-4 border-[#7C35BE] pl-4 mb-8">
-            <p className="text-xs font-semibold tracking-widest text-[#7C35BE] uppercase mb-1">Tier 3</p>
             <h2 className="text-2xl font-bold text-[#1B2D50]">Embedded Operations Partner</h2>
-            <p className="text-[#6B7280] text-sm mt-1">Monthly retainer</p>
+            <p className="text-[#6B7280] text-sm mt-1">Monthly retainer — ongoing support as your business grows</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <ServiceCard
@@ -115,7 +115,6 @@ export default function ServicesPage() {
             <ServiceCard
               title="Growth"
               price="£995/month"
-              badge="Most popular"
               body="Up to 8 hours/month. Ongoing builds, new automations, integrations, and priority response."
             />
             <ServiceCard
@@ -139,12 +138,6 @@ export default function ServicesPage() {
           </div>
         </div>
       </div>
-
-      {/* Bottom CTA banner */}
-      <section className="bg-[#7C35BE] py-12 px-6 text-white text-center">
-        <p className="text-xl font-semibold mb-4">Not sure which is right for you?</p>
-        <Button href="/contact" variant="white">Get in Touch</Button>
-      </section>
 
       <FinalCTA />
     </>

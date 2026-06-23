@@ -23,21 +23,25 @@ export default function AboutPage() {
       <section className="bg-white py-20 px-6">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1B2D50] mb-6">We&apos;re Andre and Jasmin.</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1B2D50] mb-6">Why we started Road2Resolve</h2>
             <div className="space-y-4 text-[#374151] leading-relaxed">
               <p>
-                Road2Resolve is a husband and wife team based in Folkestone, Kent. Andre leads business development and client relationships. Jasmin is our monday.com specialist — she builds the systems.
+                We kept seeing the same problem: good businesses being held back by operational chaos. Leads going cold, handovers being missed, teams working in silos. The fix usually isn&apos;t complicated — it just needs someone who knows what they&apos;re doing to build it properly.
               </p>
               <p>
-                We started Road2Resolve because we kept seeing the same problem: good businesses being held back by operational chaos. Leads going cold, handovers being missed, teams working in silos. The fix usually isn&apos;t complicated — it just needs someone who knows what they&apos;re doing to build it properly.
+                Road2Resolve is based in Folkestone, Kent. We work with clients across the UK, remotely and in person, on everything from a single audit to a fully embedded monthly partnership.
               </p>
               <p>
                 We&apos;re a small team, and we like it that way. Every client works directly with us. Nothing gets outsourced or handed to a junior.
               </p>
             </div>
           </div>
-          <div className="bg-[#F4F6FA] rounded-lg aspect-square flex items-center justify-center">
-            <p className="text-[#6B7280] text-sm">Photo coming soon</p>
+          <div className="bg-[#1B2D50] rounded-lg aspect-square flex items-center justify-center">
+            <div className="text-center px-8">
+              <p className="text-6xl font-bold text-white mb-2">R²</p>
+              <p className="text-xs text-gray-400 tracking-widest uppercase">Road2Resolve</p>
+              <p className="text-xs text-gray-500 mt-2">Folkestone, Kent</p>
+            </div>
           </div>
         </div>
       </section>

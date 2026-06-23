@@ -13,7 +13,7 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 items-start">
           <Button href="/contact" variant="white">Get in Touch</Button>
           <a href="#how-it-works" className="text-[#7C35BE] font-semibold text-sm flex items-center gap-1 hover:text-purple-300 transition-colors pt-3">
-            See how it works ↓
+            How it works →
           </a>
         </div>
       </div>

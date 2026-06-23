@@ -12,6 +12,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Road2Resolve | Digital Operations Consultancy",
   description: "We build monday.com systems for growing businesses.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
