@@ -1,20 +1,68 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-navy: #1B2D50;
-  --color-purple: #7C35BE;
-  --color-light-bg: #F4F6FA;
+  --color-navy: #25272C;
+  --color-purple: #0FA284;
+  --color-light-bg: #F5F7F6;
   --color-body: #374151;
   --color-muted: #6B7280;
   --font-sans: var(--font-inter);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: #ffffff;
   color: #374151;
   font-family: var(--font-inter), Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 * {
   box-sizing: border-box;
+}
+
+::selection {
+  background: #0FA284;
+  color: #fff;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.animate-fade-up-1 { animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both; }
+.animate-fade-up-2 { animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both; }
+.animate-fade-up-3 { animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both; }
+
+.card-lift {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -12px rgba(37, 39, 44, 0.18);
+}
+
+.hero-glow {
+  background:
+    radial-gradient(ellipse 800px 500px at 85% 20%, rgba(184, 247, 228, 0.14), transparent 60%),
+    radial-gradient(ellipse 600px 400px at 10% 90%, rgba(184, 247, 228, 0.07), transparent 60%),
+    linear-gradient(160deg, #1f2126 0%, #25272C 45%, #2c2f36 100%);
+}
+
+.section-label {
+  letter-spacing: 0.18em;
+}
+
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
 }

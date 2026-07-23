@@ -16,34 +16,44 @@ const links = [
 export default function Nav() {
   const [open, setOpen] = useState(false);
   return (
-    <nav className="sticky top-0 z-50 bg-white border-b border-[#E5E7EB]">
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/">
-          <Image src="/images/logo.png" alt="Road2Resolve" height={48} width={180} className="h-12 w-auto object-contain" priority />
+    <nav className="sticky top-0 z-50 bg-white/85 backdrop-blur-xl border-b border-gray-200/70 shadow-sm shadow-gray-100/50">
+      <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+        <Link href="/" className="transition-opacity hover:opacity-80">
+          <Image src="/images/logo.png" alt="Road2Resolve" height={64} width={64} className="h-16 w-auto object-contain" priority />
         </Link>
         {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-9">
           {links.map((l) => (
-            <Link key={l.href} href={l.href} className="text-sm font-medium text-[#374151] hover:text-[#7C35BE] transition-colors">
+            <Link
+              key={l.href}
+              href={l.href}
+              className="text-sm font-semibold text-[#374151] hover:text-[#0FA284] transition-colors relative group"
+            >
               {l.label}
+              <span className="absolute -bottom-1.5 left-0 w-0 h-0.5 bg-[#0FA284] rounded-full group-hover:w-full transition-all duration-300" />
             </Link>
           ))}
           <Button href="/contact" variant="primary">Get in Touch</Button>
         </div>
         {/* Mobile hamburger */}
-        <button className="md:hidden text-[#1B2D50]" onClick={() => setOpen(!open)} aria-label="Toggle menu">
-          {open ? <X size={24} /> : <Menu size={24} />}
+        <button className="md:hidden text-[#25272C] p-1" onClick={() => setOpen(!open)} aria-label="Toggle menu">
+          {open ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-white border-t border-[#E5E7EB] px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden bg-white/95 backdrop-blur-xl border-t border-gray-200/70 px-6 py-6 flex flex-col gap-5">
           {links.map((l) => (
-            <Link key={l.href} href={l.href} className="text-sm font-medium text-[#374151] hover:text-[#7C35BE]" onClick={() => setOpen(false)}>
+            <Link
+              key={l.href}
+              href={l.href}
+              className="text-base font-semibold text-[#374151] hover:text-[#0FA284] transition-colors"
+              onClick={() => setOpen(false)}
+            >
               {l.label}
             </Link>
           ))}
-          <Button href="/contact" variant="primary" className="text-center">Get in Touch</Button>
+          <Button href="/contact" variant="primary" className="text-center mt-1">Get in Touch</Button>
         </div>
       )}
     </nav>

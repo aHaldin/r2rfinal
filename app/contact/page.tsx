@@ -1,12 +1,14 @@
 import { Mail, MapPin } from "lucide-react";
+import { capacity } from "@/lib/config";
 
 export default function ContactPage() {
   return (
     <>
-      <section className="bg-[#1B2D50] text-white py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Get in Touch</h1>
-          <p className="text-gray-300 text-lg">We&apos;ll reply within one business day.</p>
+      <section className="hero-glow text-white py-24 md:py-28 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 grid-pattern pointer-events-none" />
+        <div className="max-w-6xl mx-auto relative">
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-5 animate-fade-up">Get in Touch</h1>
+          <p className="text-gray-300 text-lg md:text-xl animate-fade-up-1">We&apos;ll reply within one business day.</p>
         </div>
       </section>
 
@@ -14,16 +16,16 @@ export default function ContactPage() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Contact details */}
           <div>
-            <h2 className="text-2xl font-bold text-[#1B2D50] mb-6">Contact details</h2>
+            <h2 className="text-2xl font-bold text-[#25272C] mb-6">Contact details</h2>
             <div className="space-y-4">
               <div className="flex items-center gap-3">
-                <Mail className="text-[#7C35BE] shrink-0" size={20} />
-                <a href="mailto:info@road2resolve.digital" className="text-[#374151] hover:text-[#7C35BE] transition-colors">
+                <Mail className="text-[#0FA284] shrink-0" size={20} />
+                <a href="mailto:info@road2resolve.digital" className="text-[#374151] hover:text-[#0FA284] transition-colors">
                   info@road2resolve.digital
                 </a>
               </div>
               <div className="flex items-center gap-3">
-                <MapPin className="text-[#7C35BE] shrink-0" size={20} />
+                <MapPin className="text-[#0FA284] shrink-0" size={20} />
                 <span className="text-[#374151]">Folkestone, Kent</span>
               </div>
             </div>
@@ -33,7 +35,13 @@ export default function ContactPage() {
           </div>
 
           {/* Form */}
-          <div>
+          <div className="bg-[#F5F7F6] border border-gray-200/80 rounded-3xl p-8 md:p-10 shadow-sm">
+            <div className="flex items-center gap-2 mb-6">
+              <span className="w-2 h-2 rounded-full bg-[#0FA284] animate-pulse" />
+              <p className="text-sm font-bold text-[#25272C]">
+                {capacity.open} of {capacity.total} client spots currently open
+              </p>
+            </div>
             <form
               action="https://formsubmit.co/info@road2resolve.digital"
               method="POST"
@@ -45,24 +53,24 @@ export default function ContactPage() {
               <input type="hidden" name="_captcha" value="false" />
 
               <div>
-                <label className="block text-sm font-semibold text-[#1B2D50] mb-1">Name</label>
-                <input name="name" required className="w-full border border-gray-300 rounded-md px-4 py-2.5 text-sm focus:outline-none focus:border-[#7C35BE]" />
+                <label className="block text-sm font-semibold text-[#25272C] mb-1">Name</label>
+                <input name="name" required className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#0FA284] focus:ring-4 focus:ring-teal-500/10 transition-all bg-white" />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-[#1B2D50] mb-1">Email</label>
-                <input name="email" type="email" required className="w-full border border-gray-300 rounded-md px-4 py-2.5 text-sm focus:outline-none focus:border-[#7C35BE]" />
+                <label className="block text-sm font-semibold text-[#25272C] mb-1">Email</label>
+                <input name="email" type="email" required className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#0FA284] focus:ring-4 focus:ring-teal-500/10 transition-all bg-white" />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-[#1B2D50] mb-1">
+                <label className="block text-sm font-semibold text-[#25272C] mb-1">
                   Company <span className="text-[#6B7280] font-normal">(optional)</span>
                 </label>
-                <input name="company" className="w-full border border-gray-300 rounded-md px-4 py-2.5 text-sm focus:outline-none focus:border-[#7C35BE]" />
+                <input name="company" className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#0FA284] focus:ring-4 focus:ring-teal-500/10 transition-all bg-white" />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-[#1B2D50] mb-1">Message</label>
-                <textarea name="message" required rows={5} className="w-full border border-gray-300 rounded-md px-4 py-2.5 text-sm focus:outline-none focus:border-[#7C35BE] resize-none" />
+                <label className="block text-sm font-semibold text-[#25272C] mb-1">Message</label>
+                <textarea name="message" required rows={5} className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#0FA284] focus:ring-4 focus:ring-teal-500/10 transition-all bg-white resize-none" />
               </div>
-              <button type="submit" className="w-full bg-[#7C35BE] text-white font-semibold py-3 rounded-md hover:bg-[#6a2da0] transition-colors">
+              <button type="submit" className="w-full bg-gradient-to-r from-[#0FA284] to-[#35c9a3] text-white font-bold py-4 rounded-lg hover:from-[#0c8a70] hover:to-[#0FA284] shadow-lg shadow-teal-500/25 hover:shadow-xl hover:-translate-y-0.5 transition-all">
                 Send Message
               </button>
             </form>

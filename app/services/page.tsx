@@ -7,7 +7,7 @@ export const metadata = {
 
 function Badge({ text }: { text: string }) {
   return (
-    <span className="inline-block bg-[#7C35BE] text-white text-xs font-semibold px-3 py-1 rounded-full mb-2">
+    <span className="inline-block bg-gradient-to-r from-[#0FA284] to-[#5ce0bd] text-white text-xs font-bold px-3.5 py-1.5 rounded-full mb-3 shadow-md shadow-teal-500/25">
       {text}
     </span>
   );
@@ -15,13 +15,14 @@ function Badge({ text }: { text: string }) {
 
 function ServiceCard({ title, price, duration, body, badge }: { title: string; price: string; duration?: string; body: string; badge?: string }) {
   return (
-    <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm relative">
+    <div className={`card-lift bg-white rounded-2xl p-8 relative overflow-hidden ${badge ? "border-2 border-[#0FA284]/40 shadow-lg shadow-teal-500/10" : "border border-gray-200 shadow-sm"}`}>
+      {badge && <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#0FA284] to-[#B8F7E4]" />}
       {badge && <Badge text={badge} />}
-      <div className="flex items-start justify-between flex-wrap gap-2 mb-3">
-        <h3 className="font-bold text-[#1B2D50] text-lg">{title}</h3>
-        <span className="font-bold text-[#7C35BE] text-lg">{price}</span>
+      <div className="flex items-start justify-between flex-wrap gap-2 mb-4">
+        <h3 className="font-bold text-[#25272C] text-lg tracking-tight">{title}</h3>
+        <span className="font-extrabold text-[#0FA284] text-lg whitespace-nowrap">{price}</span>
       </div>
-      <p className="text-[#374151] text-sm leading-relaxed mb-2">{body}</p>
+      <p className="text-[#374151] text-[15px] leading-relaxed mb-3">{body}</p>
       {duration && <p className="text-[#6B7280] text-xs">{duration}</p>}
     </div>
   );
@@ -38,10 +39,11 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-[#1B2D50] text-white py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Services &amp; Pricing</h1>
-          <p className="text-gray-300 text-lg max-w-2xl">
+      <section className="hero-glow text-white py-24 md:py-28 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 grid-pattern pointer-events-none" />
+        <div className="max-w-6xl mx-auto relative">
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-5 animate-fade-up">Services &amp; Pricing</h1>
+          <p className="text-gray-300 text-lg md:text-xl max-w-2xl leading-relaxed animate-fade-up-1">
             Three ways to work with us — from a single audit to a fully embedded operations partner.
           </p>
         </div>
@@ -50,8 +52,8 @@ export default function ServicesPage() {
       <div className="max-w-6xl mx-auto px-6 py-16 space-y-16">
         {/* Tier 1 */}
         <div>
-          <div className="border-l-4 border-[#7C35BE] pl-4 mb-8">
-            <h2 className="text-2xl font-bold text-[#1B2D50]">Systems Consulting</h2>
+          <div className="border-l-4 border-[#0FA284] pl-4 mb-8">
+            <h2 className="text-2xl font-bold text-[#25272C]">Systems Consulting</h2>
             <p className="text-[#6B7280] text-sm mt-1">Entry point — low commitment, high clarity</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -73,8 +75,8 @@ export default function ServicesPage() {
 
         {/* Tier 2 */}
         <div>
-          <div className="border-l-4 border-[#7C35BE] pl-4 mb-8">
-            <h2 className="text-2xl font-bold text-[#1B2D50]">Operations Build</h2>
+          <div className="border-l-4 border-[#0FA284] pl-4 mb-8">
+            <h2 className="text-2xl font-bold text-[#25272C]">Operations Build</h2>
             <p className="text-[#6B7280] text-sm mt-1">Fixed-fee project work — built to your business</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
@@ -102,8 +104,8 @@ export default function ServicesPage() {
 
         {/* Tier 3 */}
         <div>
-          <div className="border-l-4 border-[#7C35BE] pl-4 mb-8">
-            <h2 className="text-2xl font-bold text-[#1B2D50]">Embedded Operations Partner</h2>
+          <div className="border-l-4 border-[#0FA284] pl-4 mb-8">
+            <h2 className="text-2xl font-bold text-[#25272C]">Embedded Operations Partner</h2>
             <p className="text-[#6B7280] text-sm mt-1">Monthly retainer — ongoing support as your business grows</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -127,12 +129,12 @@ export default function ServicesPage() {
 
         {/* Add-ons */}
         <div>
-          <h2 className="text-2xl font-bold text-[#1B2D50] mb-6">Add-ons</h2>
-          <div className="bg-[#F4F6FA] rounded-lg overflow-hidden">
+          <h2 className="text-2xl font-bold text-[#25272C] mb-6">Add-ons</h2>
+          <div className="bg-[#F5F7F6] rounded-lg overflow-hidden">
             {addons.map((a, i) => (
               <div key={a.name} className={`flex items-center justify-between px-6 py-4 ${i !== addons.length - 1 ? "border-b border-gray-200" : ""}`}>
                 <span className="text-[#374151] text-sm">{a.name}</span>
-                <span className="font-semibold text-[#7C35BE] text-sm whitespace-nowrap ml-4">{a.price}</span>
+                <span className="font-semibold text-[#0FA284] text-sm whitespace-nowrap ml-4">{a.price}</span>
               </div>
             ))}
           </div>

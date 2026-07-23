@@ -18,20 +18,22 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="bg-white py-20 px-6">
+    <section id="how-it-works" className="bg-white py-24 md:py-32 px-6">
       <div className="max-w-6xl mx-auto">
-        <p className="text-xs font-semibold tracking-widest text-[#7C35BE] uppercase mb-3">Simple process. Real results.</p>
-        <h2 className="text-3xl md:text-4xl font-bold text-[#1B2D50] mb-16">Three steps from broken to working.</h2>
-        <div className="relative grid grid-cols-1 md:grid-cols-3 gap-10">
+        <p className="text-xs font-bold section-label text-[#0FA284] uppercase mb-4">Simple process. Real results.</p>
+        <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-[#25272C] mb-20">
+          Three steps from broken to working.
+        </h2>
+        <div className="relative grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-10">
           {/* Connecting line on desktop */}
-          <div className="hidden md:block absolute top-6 left-[16.66%] right-[16.66%] h-0.5 bg-[#E5E7EB] z-0" />
+          <div className="hidden md:block absolute top-7 left-[16.66%] right-[16.66%] h-px bg-gradient-to-r from-[#0FA284]/20 via-[#0FA284]/50 to-[#0FA284]/20 z-0" />
           {steps.map((s) => (
-            <div key={s.n} className="relative z-10 flex flex-col items-start md:items-center text-left md:text-center">
-              <div className="w-12 h-12 rounded-full bg-[#1B2D50] text-white flex items-center justify-center font-bold text-lg mb-4 shrink-0">
+            <div key={s.n} className="relative z-10 flex flex-col items-start md:items-center text-left md:text-center group">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#25272C] to-[#3a3d45] text-white flex items-center justify-center font-extrabold text-xl mb-6 shrink-0 shadow-xl shadow-black/25 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                 {s.n}
               </div>
-              <h3 className="font-bold text-[#1B2D50] text-xl mb-2">{s.title}</h3>
-              <p className="text-[#374151] text-sm leading-relaxed">{s.body}</p>
+              <h3 className="font-bold text-[#25272C] text-2xl mb-3 tracking-tight">{s.title}</h3>
+              <p className="text-[#374151] text-[15px] leading-relaxed max-w-sm">{s.body}</p>
             </div>
           ))}
         </div>
