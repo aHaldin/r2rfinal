@@ -9,7 +9,7 @@ const steps = [
 
 export default function HowWeWork() {
   return (
-    <section id="how-we-work" className="bg-white py-24 md:py-32 px-6">
+    <section id="how-we-work" className="bg-[#F5F7F6] py-24 md:py-32 px-6">
       <div className="max-w-7xl mx-auto">
         <p className="text-xs font-bold section-label text-[#0FA284] uppercase mb-4">How we work</p>
         <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-[#25272C] mb-6">

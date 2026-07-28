@@ -15,10 +15,10 @@ export default function FinalCTA() {
           Find out what is slowing your business down.
         </h2>
         <p className="text-[#d9fbf1] mb-4 text-lg leading-relaxed">
-          Book a free automation audit. We will look at how your business runs, show you where the hours are going, and tell you honestly what is worth automating.
+          Thirty minutes. We look at how your business runs, show you where the hours are going, and tell you honestly what is worth automating — whether you work with us or not.
         </p>
         <p className="text-[#B8F7E4] font-bold mb-10">
-          {capacity.open} of {capacity.total} client spots currently open. When they are filled, they are filled.
+          {capacity.spotsOpenThisMonth} new client {capacity.spotsOpenThisMonth === 1 ? "spot" : "spots"} open {capacity.month}.
         </p>
         <Button href="/contact" variant="white" className="!px-8 !py-4 !text-base">Book Your Free Automation Audit</Button>
         <p className="mt-6 text-sm text-[#B8F7E4]/80">

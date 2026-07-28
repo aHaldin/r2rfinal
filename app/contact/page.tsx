@@ -39,7 +39,7 @@ export default function ContactPage() {
             <div className="flex items-center gap-2 mb-6">
               <span className="w-2 h-2 rounded-full bg-[#0FA284] animate-pulse" />
               <p className="text-sm font-bold text-[#25272C]">
-                {capacity.open} of {capacity.total} client spots currently open
+                {capacity.spotsOpenThisMonth} new client {capacity.spotsOpenThisMonth === 1 ? "spot" : "spots"} open {capacity.month}
               </p>
             </div>
             <form

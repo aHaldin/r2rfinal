@@ -1,6 +1,6 @@
 export default function WorkflowDiagram() {
   return (
-    <section className="bg-[#F5F7F6] py-24 md:py-32 px-6">
+    <section className="bg-white py-24 md:py-32 px-6">
       <div className="max-w-7xl mx-auto">
         <p className="text-xs font-bold section-label text-[#0FA284] uppercase mb-4">Before &amp; after</p>
         <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-[#25272C] max-w-3xl mb-16">
@@ -8,7 +8,7 @@ export default function WorkflowDiagram() {
         </h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Before */}
-          <div className="bg-white rounded-3xl border border-gray-200 p-8 md:p-10">
+          <div className="bg-[#F5F7F6] rounded-3xl border border-gray-200 p-8 md:p-10">
             <p className="text-xs font-bold section-label uppercase text-[#6B7280] mb-6">Before — manual and disconnected</p>
             <svg viewBox="0 0 400 288" className="w-full h-auto" role="img" aria-label="Diagram showing disconnected tools with manual copying between them">
               {["Email", "Spreadsheet", "CRM", "Finance", "Docs"].map((label, i) => {

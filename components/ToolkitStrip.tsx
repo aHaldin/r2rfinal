@@ -11,10 +11,10 @@ const tools = [
 
 export default function ToolkitStrip() {
   return (
-    <section className="bg-white pt-16 pb-4 px-6">
+    <section className="bg-white py-16 px-6">
       <div className="max-w-7xl mx-auto">
         <p className="text-center text-sm text-[#6B7280] mb-8">
-          We build with the tools your business already trusts
+          Tool-agnostic by design. We pick what fits your business, then build it properly.
         </p>
         <div className="flex flex-wrap justify-center gap-3">
           {tools.map((t) => (

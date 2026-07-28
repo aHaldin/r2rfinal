@@ -4,6 +4,7 @@ import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
+import StickyCTA from "@/components/StickyCTA";
 import { site } from "@/lib/config";
 
 const inter = Inter({
@@ -15,7 +16,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "AI & Business Automation Consultancy UK | Road2Resolve",
+    default: "Business Automation & AI Consultancy UK | Road2Resolve",
     template: "%s | Road2Resolve",
   },
   description:
@@ -76,6 +77,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Nav />
         <main id="main">{children}</main>
         <Footer />
+        <StickyCTA />
         <JsonLd
           data={{
             "@context": "https://schema.org",

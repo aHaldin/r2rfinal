@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import FinalCTA from "@/components/FinalCTA";
-import WhyFive from "@/components/WhyFive";
+import Capacity from "@/components/Capacity";
 import Button from "@/components/Button";
 
 export const metadata: Metadata = {
@@ -74,7 +74,7 @@ export default function AboutPage() {
               {[
                 { k: "Based in", v: "Folkestone, Kent" },
                 { k: "Working", v: "UK-wide" },
-                { k: "Clients at a time", v: "Five, maximum" },
+                { k: "New clients", v: "Two a month" },
                 { k: "Delivered by", v: "Senior people only" },
               ].map((d) => (
                 <div key={d.k} className="bg-[#F5F7F6] border border-gray-200/80 rounded-2xl p-5">
@@ -104,7 +104,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <WhyFive />
+      <Capacity />
       <FinalCTA />
     </>
   );
