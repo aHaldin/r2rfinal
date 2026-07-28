@@ -7,8 +7,8 @@ export default function ContactPage() {
       <section className="hero-glow text-white py-24 md:py-28 px-6 relative overflow-hidden">
         <div className="absolute inset-0 grid-pattern pointer-events-none" />
         <div className="max-w-6xl mx-auto relative">
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-5 animate-fade-up">Get in Touch</h1>
-          <p className="text-gray-300 text-lg md:text-xl animate-fade-up-1">We&apos;ll reply within one business day.</p>
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-5 animate-fade-up">Book your free automation audit</h1>
+          <p className="text-gray-300 text-lg md:text-xl max-w-2xl leading-relaxed animate-fade-up-1">Tell us how your business runs today. We will come back with an honest view of where your hours are going and what is worth automating first. We reply within one business day.</p>
         </div>
       </section>
 
@@ -16,7 +16,7 @@ export default function ContactPage() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Contact details */}
           <div>
-            <h2 className="text-2xl font-bold text-[#25272C] mb-6">Contact details</h2>
+            <h2 className="text-2xl font-extrabold tracking-tight text-[#25272C] mb-6">Contact details</h2>
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <Mail className="text-[#0FA284] shrink-0" size={20} />
@@ -48,7 +48,7 @@ export default function ContactPage() {
               className="space-y-4"
             >
               {/* FormSubmit config */}
-              <input type="hidden" name="_subject" value="New enquiry — Road2Resolve website" />
+              <input type="hidden" name="_subject" value="New automation audit enquiry — Road2Resolve website" />
               <input type="hidden" name="_next" value="https://road2resolve.digital/thank-you" />
               <input type="hidden" name="_captcha" value="false" />
 

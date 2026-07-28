@@ -2,7 +2,7 @@ import { capacity } from "@/lib/config";
 
 export default function WhyFive() {
   return (
-    <section className="bg-[#F5F7F6] py-24 md:py-28 px-6">
+    <section className="bg-white py-24 md:py-28 px-6">
       <div className="max-w-4xl mx-auto text-center">
         <div className="flex items-center justify-center gap-2.5 mb-8">
           {Array.from({ length: capacity.total }).map((_, i) => (

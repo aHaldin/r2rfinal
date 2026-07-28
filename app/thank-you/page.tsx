@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Message Sent | Road2Resolve",
+  title: "Message Sent",
 };
 
 export default function ThankYouPage() {

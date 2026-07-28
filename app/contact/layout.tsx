@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact | Road2Resolve",
+  title: "Contact",
 };
 
 export default function ContactLayout({ children }: { children: React.ReactNode }) {

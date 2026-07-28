@@ -1,142 +1,119 @@
-import Button from "@/components/Button";
+import type { Metadata } from "next";
+import Link from "next/link";
+import PageHero from "@/components/PageHero";
 import FinalCTA from "@/components/FinalCTA";
+import Button from "@/components/Button";
+import { pricing } from "@/lib/config";
 
-export const metadata = {
-  title: "Services & Pricing | Road2Resolve",
+export const metadata: Metadata = {
+  title: "AI & Automation Services | Business Automation Consultant UK",
+  description:
+    "AI business automation, workflow optimisation, process mapping, operations consulting, CRM implementation and dashboards. Automation consultancy for UK businesses. Projects from £2,500.",
+  alternates: { canonical: "/services" },
 };
 
-function Badge({ text }: { text: string }) {
-  return (
-    <span className="inline-block bg-gradient-to-r from-[#0FA284] to-[#5ce0bd] text-white text-xs font-bold px-3.5 py-1.5 rounded-full mb-3 shadow-md shadow-teal-500/25">
-      {text}
-    </span>
-  );
-}
+type Service = { id?: string; title: string; outcome: string; detail: string };
 
-function ServiceCard({ title, price, duration, body, badge }: { title: string; price: string; duration?: string; body: string; badge?: string }) {
-  return (
-    <div className={`card-lift bg-white rounded-2xl p-8 relative overflow-hidden ${badge ? "border-2 border-[#0FA284]/40 shadow-lg shadow-teal-500/10" : "border border-gray-200 shadow-sm"}`}>
-      {badge && <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#0FA284] to-[#B8F7E4]" />}
-      {badge && <Badge text={badge} />}
-      <div className="flex items-start justify-between flex-wrap gap-2 mb-4">
-        <h3 className="font-bold text-[#25272C] text-lg tracking-tight">{title}</h3>
-        <span className="font-extrabold text-[#0FA284] text-lg whitespace-nowrap">{price}</span>
-      </div>
-      <p className="text-[#374151] text-[15px] leading-relaxed mb-3">{body}</p>
-      {duration && <p className="text-[#6B7280] text-xs">{duration}</p>}
-    </div>
-  );
-}
-
-const addons = [
-  { name: "Third-party integration setup (Zapier/Make)", price: "£450–£850" },
-  { name: "Custom dashboard build", price: "£650" },
-  { name: "Team training session (up to 6 people, 90 mins)", price: "£295" },
-  { name: "monday.com account setup & configuration", price: "£199" },
+const groups: { heading: string; blurb: string; services: Service[] }[] = [
+  {
+    heading: "AI & Automation",
+    blurb: "Removing the repetitive work your team should not still be doing by hand.",
+    services: [
+      { id: "ai", title: "AI Business Automation", outcome: "Hours back every week", detail: "We identify the tasks eating your team's time and put AI to work on them — drafting, summarising, classifying and answering, inside the tools you already use." },
+      { id: "assistants", title: "AI Assistants", outcome: "Instant answers, no chasing", detail: "Internal assistants trained on your own processes and documents, so staff stop interrupting each other to find things out." },
+      { id: "knowledge", title: "AI Knowledge Systems", outcome: "Your knowledge, searchable", detail: "Turn years of documents, contracts and procedures into something anyone can query in plain English and trust the answer." },
+      { id: "reporting", title: "AI Reporting", outcome: "Know what changed without asking", detail: "Automated plain-English summaries of performance, pipeline and exceptions, delivered where your team already works." },
+      { id: "strategy", title: "Automation Strategy", outcome: "A plan, not a shopping list", detail: "A prioritised roadmap of what to automate first for the biggest return — and, just as importantly, what to leave alone." },
+    ],
+  },
+  {
+    heading: "Operations & Process",
+    blurb: "Fixing how the business runs before layering technology on top of it.",
+    services: [
+      { id: "workflow", title: "Workflow Optimisation", outcome: "Fewer steps, fewer mistakes", detail: "We strip out the handoffs, duplicate entry and approval bottlenecks that slow every job down." },
+      { id: "mapping", title: "Business Process Mapping", outcome: "See where the time actually goes", detail: "A clear map of how work really moves through your business, with the manual steps and their cost made visible." },
+      { id: "consulting", title: "Operations Consulting", outcome: "Scale without adding admin", detail: "Practical advice on structuring your operations so growth does not mean hiring another administrator every time." },
+      { id: "dashboards", title: "Business Dashboards", outcome: "One version of the truth", detail: "Live dashboards that show pipeline, capacity, delivery and performance without anyone building a spreadsheet." },
+      { id: "training", title: "Team Training", outcome: "Systems that actually get used", detail: "Your team shown how everything works in plain English, so the investment does not quietly go unused." },
+      { id: "support", title: "Automation Support", outcome: "It keeps working as you change", detail: "Ongoing maintenance, monitoring and improvement as your business, your team and your tools evolve." },
+    ],
+  },
+  {
+    heading: "Platforms & Integrations",
+    blurb: "We are tool-agnostic. These are the platforms we build with most often.",
+    services: [
+      { id: "monday", title: "monday.com Implementation", outcome: "Your operations in one place", detail: "Full monday.com builds — boards, automations, dashboards and integrations — designed around how your business actually works. See our dedicated monday.com consultancy page." },
+      { id: "make", title: "Make.com Automation", outcome: "Complex processes, fully automated", detail: "Advanced multi-step scenarios connecting the systems that were never designed to talk to each other." },
+      { id: "zapier", title: "Zapier Integrations", outcome: "Quick wins, live in days", detail: "Fast, reliable connections between your everyday apps — often the cheapest hours you will ever buy back." },
+      { id: "openai", title: "OpenAI Integration", outcome: "AI inside your own systems", detail: "Custom AI built into your workflows and data, rather than staff pasting company information into a public chatbot." },
+      { id: "crm", title: "CRM Implementation", outcome: "No lead falls through", detail: "CRM selected, configured and integrated so your pipeline is accurate and follow-up happens automatically." },
+      { id: "workspace", title: "Google Workspace & Microsoft 365 Automation", outcome: "Your inbox stops being the system", detail: "Documents, approvals, forms and email workflows automated inside the productivity suite you already pay for." },
+    ],
+  },
 ];
 
 export default function ServicesPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="hero-glow text-white py-24 md:py-28 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 grid-pattern pointer-events-none" />
-        <div className="max-w-6xl mx-auto relative">
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-5 animate-fade-up">Services &amp; Pricing</h1>
-          <p className="text-gray-300 text-lg md:text-xl max-w-2xl leading-relaxed animate-fade-up-1">
-            Three ways to work with us — from a single audit to a fully embedded operations partner.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Services"
+        title="Business outcomes first. Software second."
+        sub="We are an AI and business automation consultancy. Below is what we do — described by the problem it solves, not the product it uses."
+      />
 
-      <div className="max-w-6xl mx-auto px-6 py-16 space-y-16">
-        {/* Tier 1 */}
-        <div>
-          <div className="border-l-4 border-[#0FA284] pl-4 mb-8">
-            <h2 className="text-2xl font-bold text-[#25272C]">Systems Consulting</h2>
-            <p className="text-[#6B7280] text-sm mt-1">Entry point — low commitment, high clarity</p>
+      <div className="max-w-7xl mx-auto px-6 py-20 md:py-28 space-y-24">
+        {groups.map((g) => (
+          <div key={g.heading}>
+            <div className="border-l-4 border-[#0FA284] pl-5 mb-10">
+              <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-[#25272C]">{g.heading}</h2>
+              <p className="text-[#6B7280] mt-2">{g.blurb}</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {g.services.map((s) => (
+                <div key={s.title} id={s.id} className="card-lift scroll-mt-28 bg-white border border-gray-200/80 rounded-2xl p-7 shadow-sm">
+                  <p className="text-xs font-bold text-[#0FA284] mb-3">{s.outcome}</p>
+                  <h3 className="font-bold text-[#25272C] text-lg mb-3 tracking-tight">{s.title}</h3>
+                  <p className="text-[#374151] text-[15px] leading-relaxed">{s.detail}</p>
+                  {s.id === "monday" && (
+                    <Link href="/monday-com-consultant" className="text-[#0FA284] text-sm font-bold mt-4 inline-flex items-center gap-1 hover:gap-2 transition-all">
+                      monday.com consultancy <span aria-hidden="true">→</span>
+                    </Link>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <ServiceCard
-              title="monday.com Health Check"
-              price="£349"
-              body="For businesses already using monday.com but suspect it's not set up well. We review your boards, automations, and workflows and deliver a written report with prioritised recommendations."
-              duration="Typical duration: 2–3 hours of our time."
-            />
-            <ServiceCard
-              title="Operations Discovery Session"
-              price="£599"
-              badge="Best starting point"
-              body="A structured workshop where we map your current workflow, identify gaps, and produce a written roadmap. If you go on to a build, the £599 comes off the project cost."
-              duration="Typical duration: 2-hour session + written output."
-            />
-          </div>
-        </div>
+        ))}
 
-        {/* Tier 2 */}
-        <div>
-          <div className="border-l-4 border-[#0FA284] pl-4 mb-8">
-            <h2 className="text-2xl font-bold text-[#25272C]">Operations Build</h2>
-            <p className="text-[#6B7280] text-sm mt-1">Fixed-fee project work — built to your business</p>
+        {/* Pricing */}
+        <div id="pricing" className="scroll-mt-28">
+          <div className="border-l-4 border-[#0FA284] pl-5 mb-10">
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-[#25272C]">Pricing</h2>
+            <p className="text-[#6B7280] mt-2">Every business is different, but here is where things typically start.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
-            <ServiceCard
-              title="Starter Build"
-              price="£1,500"
-              body="One or two boards, basic automations. Good for micro businesses or a single department new to monday.com."
-            />
-            <ServiceCard
-              title="Growth Build"
-              price="£2,800"
-              badge="Most popular"
-              body="Multi-board system with cross-board automations, status-driven workflows, and a basic dashboard. Our most popular package."
-            />
-            <ServiceCard
-              title="Full Operations Build"
-              price="£4,500–£6,500"
-              body="Complex multi-board architecture, third-party integrations (Zapier/Make), custom dashboards, and team training included. Scoped individually after a discovery session."
-            />
-          </div>
-          <p className="text-sm text-[#6B7280] italic">
-            All builds include one round of revisions and a 30-day support window after go-live.
-          </p>
-        </div>
-
-        {/* Tier 3 */}
-        <div>
-          <div className="border-l-4 border-[#0FA284] pl-4 mb-8">
-            <h2 className="text-2xl font-bold text-[#25272C]">Embedded Operations Partner</h2>
-            <p className="text-[#6B7280] text-sm mt-1">Monthly retainer — ongoing support as your business grows</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <ServiceCard
-              title="Essential"
-              price="£595/month"
-              body="Up to 4 hours/month. Covers maintenance, minor tweaks, and one small automation per month."
-            />
-            <ServiceCard
-              title="Growth"
-              price="£995/month"
-              body="Up to 8 hours/month. Ongoing builds, new automations, integrations, and priority response."
-            />
-            <ServiceCard
-              title="Partner"
-              price="£1,750/month"
-              body="Up to 16 hours/month. Fully embedded — strategic input, multiple boards, integrations, reporting."
-            />
-          </div>
-        </div>
-
-        {/* Add-ons */}
-        <div>
-          <h2 className="text-2xl font-bold text-[#25272C] mb-6">Add-ons</h2>
-          <div className="bg-[#F5F7F6] rounded-lg overflow-hidden">
-            {addons.map((a, i) => (
-              <div key={a.name} className={`flex items-center justify-between px-6 py-4 ${i !== addons.length - 1 ? "border-b border-gray-200" : ""}`}>
-                <span className="text-[#374151] text-sm">{a.name}</span>
-                <span className="font-semibold text-[#0FA284] text-sm whitespace-nowrap ml-4">{a.price}</span>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            {[
+              { name: "Automation Audit", price: pricing.discovery, body: "A conversation and a review of how your business runs, ending with an honest view of what is worth automating. No cost, no obligation.", cta: "Book your audit", featured: true },
+              { name: "Projects", price: "from " + pricing.projectsFrom, body: "Fixed-scope builds — AI, automations, integrations, dashboards and systems. Quoted after discovery so you know the number before we start.", cta: "Discuss a project" },
+              { name: "Ongoing Support", price: "from " + pricing.supportFrom, body: "Monthly partnership. We maintain, extend and improve your systems as the business changes. Most clients move onto this after a build.", cta: "Talk about support" },
+            ].map((p) => (
+              <div key={p.name} className={"card-lift rounded-2xl p-8 relative overflow-hidden " + (p.featured ? "bg-white border-2 border-[#0FA284]/40 shadow-lg shadow-teal-500/10" : "bg-white border border-gray-200 shadow-sm")}>
+                {p.featured && <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#0FA284] to-[#B8F7E4]" />}
+                <h3 className="font-bold text-[#25272C] text-lg mb-1 tracking-tight">{p.name}</h3>
+                <p className="text-3xl font-extrabold text-[#0FA284] mb-4">{p.price}</p>
+                <p className="text-[#374151] text-[15px] leading-relaxed mb-6">{p.body}</p>
+                <Link href="/contact" className="text-[#0FA284] text-sm font-bold inline-flex items-center gap-1 hover:gap-2 transition-all">
+                  {p.cta} <span aria-hidden="true">→</span>
+                </Link>
               </div>
             ))}
+          </div>
+          <div className="bg-[#F5F7F6] border border-gray-200/80 rounded-2xl p-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div>
+              <p className="font-bold text-[#25272C] text-lg mb-1">Larger or multi-site business?</p>
+              <p className="text-[#374151] text-[15px]">Enterprise pricing available for complex, multi-department automation programmes.</p>
+            </div>
+            <Button href="/contact" variant="primary" className="shrink-0">Talk to an automation expert</Button>
           </div>
         </div>
       </div>
