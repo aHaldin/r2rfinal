@@ -25,3 +25,8 @@ example='''<section class="wrap page-intro example-intro"><p class="eyebrow">EXA
 page('example.html','Fictional home-renovation website demo','Explore Oak & Stone, a clearly labelled fictional renovation company demo. See how one website structure adapts to builders, plumbers, roofers, landscapers and other trades.',example)
 (root/'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: '+origin+'/sitemap.xml\n')
 (root/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>'+origin+'/'+('' if f=='index.html' else f)+'</loc></url>' for f in ['index.html','package.html','example.html','about.html','contact.html'])+'</urlset>')
+required_assets=['assets/style.css','assets/site.js','assets/favicon.svg','assets/home-renovation.jpg']
+missing=[asset for asset in required_assets if not (root/asset).is_file()]
+if missing:
+ raise SystemExit('Missing website assets: '+', '.join(missing))
+print('Built 5 HTML pages in dist. Verified styles, scripts, favicon and project image.')

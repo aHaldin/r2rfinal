@@ -24,7 +24,9 @@ Set `SITE_ORIGIN` to change the canonical URL and sitemap domain. It defaults to
 
 ## Deploy
 
-Netlify publishes the committed `dist` folder. No Node.js dependencies or build command are required. Remove any old Next.js build-command, publish-directory or plugin overrides from Netlify if they are configured outside this repository.
+Netlify runs `python3 build.py` from the repository root and publishes `dist`. No Node.js dependencies are required. The configuration file sets the base directory, build command and publish directory explicitly.
+
+If Netlify still runs the old Next.js plugin, remove `@netlify/plugin-nextjs` in Project configuration > Developer settings > Build plugins. Plugins installed through the Netlify UI can remain enabled after their repository configuration is removed.
 
 ## Contact form
 
