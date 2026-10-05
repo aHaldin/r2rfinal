@@ -26,7 +26,9 @@ Set `SITE_ORIGIN` to change the canonical URL and sitemap domain. It defaults to
 
 Netlify runs `python3 build.py` from the repository root and publishes `dist`. No Node.js dependencies are required. The configuration file sets the base directory, build command and publish directory explicitly.
 
-If Netlify still runs the old Next.js plugin, remove `@netlify/plugin-nextjs` in Project configuration > Developer settings > Build plugins. Plugins installed through the Netlify UI can remain enabled after their repository configuration is removed.
+`NETLIFY_NEXT_PLUGIN_SKIP=true` is set in `netlify.toml` to bypass the Next.js runtime retained from the old site. The new site serves static HTML and does not need that runtime.
+
+For a permanent cleanup, remove `@netlify/plugin-nextjs` in Project configuration > Developer settings > Build plugins. Plugins installed through the Netlify UI can remain enabled after their repository configuration is removed. If an older runtime ignores the skip setting, remove it in the dashboard and redeploy.
 
 ## Contact form
 

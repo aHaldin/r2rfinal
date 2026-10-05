@@ -3,6 +3,9 @@
   command = "python3 build.py"
   publish = "dist"
 
+[build.environment]
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
+
 [[redirects]]
   from = "/services"
   to = "/package.html"
