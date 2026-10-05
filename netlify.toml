@@ -1,6 +1,52 @@
 [build]
-  command = "npm run build"
-  publish = ".next"
+  publish = "dist"
 
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
+[[redirects]]
+  from = "/services"
+  to = "/package.html"
+  status = 301
+
+[[redirects]]
+  from = "/case-studies"
+  to = "/example.html"
+  status = 301
+
+[[redirects]]
+  from = "/industries"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/ai-automation"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/monday-com-consultant"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/thank-you"
+  to = "/contact.html"
+  status = 301
+
+[[redirects]]
+  from = "/about"
+  to = "/about.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 200
+
+[[redirects]]
+  from = "/package"
+  to = "/package.html"
+  status = 200
+
+[[redirects]]
+  from = "/example"
+  to = "/example.html"
+  status = 200
