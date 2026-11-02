@@ -1,57 +1,7 @@
 [build]
   base = "."
-  command = "python3 build.py"
+  command = ""
   publish = "dist"
 
 [build.environment]
   NETLIFY_NEXT_PLUGIN_SKIP = "true"
-
-[[redirects]]
-  from = "/services"
-  to = "/package.html"
-  status = 301
-
-[[redirects]]
-  from = "/case-studies"
-  to = "/example.html"
-  status = 301
-
-[[redirects]]
-  from = "/industries"
-  to = "/"
-  status = 301
-
-[[redirects]]
-  from = "/ai-automation"
-  to = "/"
-  status = 301
-
-[[redirects]]
-  from = "/monday-com-consultant"
-  to = "/"
-  status = 301
-
-[[redirects]]
-  from = "/thank-you"
-  to = "/contact.html"
-  status = 301
-
-[[redirects]]
-  from = "/about"
-  to = "/about.html"
-  status = 200
-
-[[redirects]]
-  from = "/contact"
-  to = "/contact.html"
-  status = 200
-
-[[redirects]]
-  from = "/package"
-  to = "/package.html"
-  status = 200
-
-[[redirects]]
-  from = "/example"
-  to = "/example.html"
-  status = 200
